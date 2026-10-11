@@ -4,7 +4,7 @@ QR·바코드·읽기·검증·비밀번호 도구 모음. 향후 주소는 **ht
 
 ## 현재 상태 — 2026-10-12
 
-**2026-10-12 GitHub·Cloudflare Pages 배포 완료.** 저장소 `gym720-dot/kyminfo-code`, Pages 프로젝트 `kyminfo-code`. 사용자 DNS 등록 완료, HTTPS 활성화 최종 확인 진행 중입니다. 5개 키미 사이트의 명칭과 Family Sites를 통일했습니다. 구글·네이버 등록·광고 연결은 추후 진행합니다.
+**2026-10-12 GitHub·Cloudflare Pages 배포 완료.** 저장소 `gym720-dot/kyminfo-code`, Pages 프로젝트 `kyminfo-code`. DNS·HTTPS 활성화 및 실제 사이트의 메뉴·아이콘 확인을 완료했습니다. 5개 키미 사이트의 명칭과 Family Sites를 통일했습니다. 구글·네이버 등록·광고 연결은 추후 진행합니다.
 
 ### 제공 기능
 
