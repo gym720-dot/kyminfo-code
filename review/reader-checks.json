@@ -1,0 +1,58 @@
+[
+  {
+    "file": "qr.png",
+    "injected": false,
+    "linkVisible": true,
+    "output": "https://example.com/menu?lang=ko",
+    "status": "QR 내용을 읽었습니다. 와이파이 QR이면 비밀번호가 포함될 수 있습니다."
+  },
+  {
+    "file": "qr.jpg",
+    "injected": false,
+    "linkVisible": true,
+    "output": "https://example.com/menu?lang=ko",
+    "status": "QR 내용을 읽었습니다. 와이파이 QR이면 비밀번호가 포함될 수 있습니다."
+  },
+  {
+    "file": "qr.webp",
+    "injected": false,
+    "linkVisible": true,
+    "output": "https://example.com/menu?lang=ko",
+    "status": "QR 내용을 읽었습니다. 와이파이 QR이면 비밀번호가 포함될 수 있습니다."
+  },
+  {
+    "file": "qr-html.png",
+    "injected": false,
+    "linkVisible": false,
+    "output": "<img src=x onerror=alert(1)>",
+    "status": "QR 내용을 읽었습니다. 와이파이 QR이면 비밀번호가 포함될 수 있습니다."
+  },
+  {
+    "file": "blank.png",
+    "injected": false,
+    "linkVisible": false,
+    "output": "",
+    "status": "QR을 찾지 못했습니다. 정면에서 크게 촬영하거나 QR 주변을 잘라 다시 시도해 주세요."
+  },
+  {
+    "file": "not-image.txt",
+    "injected": false,
+    "linkVisible": false,
+    "output": "",
+    "status": "지원되는 PNG·JPEG·WebP 이미지가 아니거나 파일이 손상되었습니다."
+  },
+  {
+    "file": "huge-header.png",
+    "injected": false,
+    "linkVisible": false,
+    "output": "",
+    "status": "원본 이미지가 1,600만 픽셀 또는 한 변 16,384px를 초과합니다. QR 주변을 잘라 다시 선택해 주세요."
+  },
+  {
+    "file": "too-large.png",
+    "injected": false,
+    "linkVisible": false,
+    "output": "",
+    "status": "빈 파일이거나 10MB를 초과합니다."
+  }
+]

@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.log
+tests/actual/
+tests/fixtures/too-large.png
+review/download-manifest.json
+.DS_Store

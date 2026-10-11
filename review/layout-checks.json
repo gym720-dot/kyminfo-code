@@ -1,0 +1,41 @@
+[
+  {
+    "width": 320,
+    "page": "home",
+    "client": 305,
+    "scroll": 305
+  },
+  {
+    "width": 320,
+    "page": "long-barcode",
+    "client": 305,
+    "image": 1910,
+    "scroll": 305
+  },
+  {
+    "width": 768,
+    "page": "home",
+    "client": 753,
+    "scroll": 753
+  },
+  {
+    "width": 768,
+    "page": "long-barcode",
+    "client": 753,
+    "image": 1910,
+    "scroll": 753
+  },
+  {
+    "width": 1920,
+    "page": "home",
+    "client": 1905,
+    "scroll": 1905
+  },
+  {
+    "width": 1920,
+    "page": "long-barcode",
+    "client": 1905,
+    "image": 1910,
+    "scroll": 1905
+  }
+]

@@ -1,0 +1,16 @@
+import {mkdir,writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import sharp from 'sharp';
+import {Resvg} from '@resvg/resvg-js';
+import {qrImage} from '../src/engine.ts';
+const folder=new URL('fixtures/',import.meta.url);await mkdir(folder,{recursive:true});
+const image=new Resvg(qrImage('https://example.com/menu?lang=ko').svg,{font:{loadSystemFonts:false}}).render().asPng();
+await writeFile(new URL('qr.png',folder),image);
+await sharp(image).jpeg({quality:92}).toFile(fileURLToPath(new URL('qr.jpg',folder)));
+await sharp(image).webp({lossless:true}).toFile(fileURLToPath(new URL('qr.webp',folder)));
+await writeFile(new URL('qr-html.png',folder),new Resvg(qrImage('<img src=x onerror=alert(1)>').svg,{font:{loadSystemFonts:false}}).render().asPng());
+await sharp({create:{width:200,height:200,channels:3,background:'#fff'}}).png().toFile(fileURLToPath(new URL('blank.png',folder)));
+const huge=Uint8Array.from(image);new DataView(huge.buffer).setUint32(16,100000);await writeFile(new URL('huge-header.png',folder),huge);
+await writeFile(new URL('not-image.txt',folder),'Not an image.');
+await writeFile(new URL('too-large.png',folder),Buffer.alloc(10*1024*1024+1));
+console.log('Created synthetic, non-personal QR and invalid-file fixtures.');
