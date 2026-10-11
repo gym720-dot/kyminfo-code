@@ -14,4 +14,4 @@ for(const p of pages){const target=p.slug==='404'?'404.html':p.slug?p.slug+'/ind
 }
 const sitemap=await readFile(file('sitemap.xml'),'utf8');assert.equal((sitemap.match(/<loc>/g)||[]).length,pages.length-1);assert.ok(!sitemap.includes('404'));assert.ok((await readFile(file('robots.txt'),'utf8')).includes(domain+'/sitemap.xml'));
 assert.ok(headers.includes("connect-src 'self'"));assert.ok(headers.includes('camera=()'));assert.ok(headers.includes('https://:version.:project.pages.dev/*'));assert.ok((await readFile(file('licenses.txt'),'utf8')).includes('Apache'));
-console.log(`Static check passed: ${pages.length} pages, ${pages.length-1} sitemap URLs, ${links} local links, unique metadata, valid JSON-LD/CSP, no active ads/analytics.`);
+console.log(`Static check passed: ${pages.length} pages, ${pages.length-1} sitemap URLs, ${links} local links, unique metadata, valid JSON-LD/CSP, no active ads or Google Analytics; Cloudflare beacon is injected at deployment.`);
