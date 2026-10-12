@@ -80,6 +80,13 @@ export function barcodeImage(format:BarcodeFormat,raw:string,scale=2,height=90){
  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${h}" viewBox="0 0 ${width} ${h}"><rect width="${width}" height="${h}" fill="#fff"/><g fill="#111" shape-rendering="crispEdges">${bars}</g><text x="${width/2}" y="${height+38}" text-anchor="middle" font-family="monospace" font-size="16" fill="#111">${xml(value)}</text></svg>`;
  return {svg,width,height:h,value,pattern};
 }
+export type BarcodeBatchRow={index:number;raw:string;error?:string;svg?:string;width?:number;height?:number;value?:string;duplicate?:boolean};
+export function barcodeBatch(format:BarcodeFormat,text:string,scale=2,height=90):BarcodeBatchRow[]{
+ const lines=text.replace(/\r\n?|\n/g,'\n').split('\n').filter(s=>s.trim()!=='');
+ if(!lines.length||lines.length>50||text.length>10000)throw Error('바코드 값은 줄마다 하나씩, 최대 50개·10,000자로 입력하세요.');
+ const seen=new Set<string>();
+ return lines.map((raw,index)=>{try{const result=barcodeImage(format,raw,scale,height),duplicate=seen.has(result.value);seen.add(result.value);return {index:index+1,raw,...result,duplicate};}catch(error){return {index:index+1,raw,error:error instanceof Error?error.message:'생성 실패'};}});
+}
 export function randomIndex(n:number,fill:(a:Uint32Array<ArrayBuffer>)=>void=a=>{crypto.getRandomValues(a);}){
  if(!Number.isInteger(n)||n<1||n>65536)throw new Error('난수 범위가 잘못되었습니다.');const limit=Math.floor(4294967296/n)*n,a=new Uint32Array(1);for(let attempt=0;attempt<10000;attempt++){fill(a);if(a[0]<limit)return a[0]%n;}throw new Error('난수 생성에 실패했습니다. 다시 시도해 주세요.');
 }
